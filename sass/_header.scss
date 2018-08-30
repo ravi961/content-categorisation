@@ -1,0 +1,32 @@
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin-top: 0px;
+	background-color: #e8ebed;
+	width: 100%;
+	z-index: 99999;
+	@include clearfix;
+
+	.header_logo {
+		float: left;
+		height:55px;
+		width:30%;
+		box-sizing:border-box;
+
+		img {
+			height:inherit;
+		
+		}
+	}
+
+	#grpImg {
+		float: right;
+		background: url('../images/group.png') no-repeat ;
+		background-size: cover;
+		background-position: 14px 0px;
+		height: 55px;
+		width: 200px;
+	}
+}
+
