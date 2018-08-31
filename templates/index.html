@@ -44,14 +44,14 @@
 					
 					<select class="select_values query_options" name = "search_categories" id="query_select" onchange="toggleForm(this.value)">
 					    <!-- <option value="">Select Query Type</option> -->
-					    <option value="Query" selected>Enter Para,Text ...</option>
+					    <option value="Query" selected>Enter Text</option>
 					    <option value="XML">Uplaod XML</option>
 					    <option value="DOI">Enter DOI</option>
 					</select>
 				</div>	
 			</div>
 
-			<form class="queryForm query_text" action="" method="POST" id="queryForm" accept-charset="utf-8">
+			<form class="queryForm query_text" action="/uploadText" method="POST" id="queryForm" accept-charset="utf-8">
 
 				<div class="queryWrapper">
 					<textarea rows="10" cols="55" name="textQuery" form="queryForm" placeholder="Enter query String" maxlength="200" required></textarea>
