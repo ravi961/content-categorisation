@@ -4,8 +4,9 @@
 */
 
 body {
-  background: #ddd url("../img/bg.jpg");
-  font-family: 'Nunito', sans-serif;
+  // background: #F4F6F9;
+  // font-family: 'Nunito', sans-serif;
+  @include fontstyle;
 }
 
 

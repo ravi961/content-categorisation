@@ -7,100 +7,93 @@
 	<title>Hackathon Solution</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="{{ url_for('static', filename='scripts/uploadFile.js') }}" type="text/javascript" charset="utf-8" async defer></script>
-	<href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-
-	<!-- <script>
-		$(function() {
-			$("#headmast").load("/header.html");
-			$("#tablemast").load("/results.html")
-		})
-	</script> -->
+	<!-- <href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'> -->
 </head>
 
 <body>
 
-	<header id="headmast">
+	<div id="headmast" class="header">
 		{%	include	'includes/header.html'	%}
-	</header>
+	</div>
 
 	<div class="main">
 		<div class="main_banner">
-			<div class="clearfix">
+			<div class="container clearfix">
 				<div class="detailBox">
 					<h1 class="detailBox_title">How Does it Work?</h1>
 					<p class="detailBox_content">Scientific content has very specific characteristics and when a Researcher searches for some content or term, identifying searched scientific term is crucial to match to the right articles. Categorization of scientific content from the searched term hence requires a knowledge base of scientific terms with the ability to differentiate it from normally used English vocabulary. This recognition of scientific terms and entities can help to perform the accurate search.</p>
 				</div>
-			</div>		
+			</div>
 		</div>
 		
 		<div class="main_input query">
+			<div class="container">
+				<div class="heading-wrapper query_search_categories">
+                    <div class="container-heading">
+                        <h5>Select Query Type</h5>
+                    </div>
+                    <div class="sortby-wrapper query_search_select select">
+                        <select class="sortby select_values query_options"  name = "search_categories" id="query_select" onchange="toggleForm(this.value)">
+                            <option value="Query">Enter Text</option>
+                            <option value="XML">Uplaod XML</option>
+                            <option value="DOI">Enter DOI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form_wrapper">
+					<form class="queryForm query_text" action="" method="POST" id="queryForm" accept-charset="utf-8">
 
-			<span id="title">Select Query Type</span>
-			<div class="query_search_categories">
+						<div class="queryWrapper">
+							<textarea rows="10" cols="55" name="textQuery" form="queryForm" placeholder="Enter query String" maxlength="200" required></textarea>
+							<div id="the-count">
+							    <span id="current">0</span>
+							    <span id="maximum">/ 500</span>
+						  	</div>	
+						</div>
 
-				<div class="query_search_select select">
-					
-					<select class="select_values query_options" name = "search_categories" id="query_select" onchange="toggleForm(this.value)">
-					    <!-- <option value="">Select Query Type</option> -->
-					    <option value="Query" selected>Enter Text</option>
-					    <option value="XML">Uplaod XML</option>
-					    <option value="DOI">Enter DOI</option>
-					</select>
+						<input class="btnSubmit" type="submit" name="submit">
+					</form>
+
+					<form class="queryForm query_doi" action="" method="POST"  accept-charset="utf-8">
+						<div class="queryWrapper">
+							<label for="doi">Enter DOI value <span class="required">*</span> :</label><br>
+							<input id="doi" type="text" name="doi" value="" required>
+						</div>
+
+						<input class="btnSubmit" type="submit" name="submit">
+					</form>
+					<div class="queryForm">
+						<form class="query_xml file-uploader" method="post" action="" enctype="multipart/form-data" onSubmit="">
+							<div class="queryWrapper">
+								<div class="file-uploader__message-area">
+									<p>Select a file to upload</p>
+								</div>
+							
+								<div class="file-chooser">
+									<input class="file-chooser__input" type="file" accept=".xml">
+								</div>
+
+								<input class="file-uploader__submit-button" type="submit" value="Upload" disabled> 	
+							</div>
+							
+						</form>
 				</div>	
 			</div>
 
-			<form class="queryForm query_text" action="/uploadText" method="POST" id="queryForm" accept-charset="utf-8">
-
-				<div class="queryWrapper">
-					<textarea rows="10" cols="55" name="textQuery" form="queryForm" placeholder="Enter query String" maxlength="200" required></textarea>
-					<div id="the-count">
-					    <span id="current">0</span>
-					    <span id="maximum">/ 500</span>
-				  	</div>	
-				</div>
-
-				<input class="btnSubmit" type="submit" name="submit">
-			</form>
-
-			<form class="queryForm query_doi" action="" method="POST"  accept-charset="utf-8">
-				<div class="queryWrapper">
-					
-					<label for="doi">Enter DOI value <span class="required">*</span> :</label><br>
-					<input id="doi" type="text" name="doi" value="" required>
-					<!-- <span class="tip show">Invalid entry</span> <!-- toggle class hide/show as required--> -->
-				</div>
-
-				<input class="btnSubmit" type="submit" name="submit">
-			</form>
-
-			<div class="queryForm">
 				
-				
-				<form class="query_xml file-uploader" method="post" action="" enctype="multipart/form-data" onSubmit="">
-					<div class="queryWrapper">
-						<div class="file-uploader__message-area">
-							<p>Select a file to upload</p>
-						</div>
-					
-						<div class="file-chooser">
-							<input class="file-chooser__input" type="file" accept=".xml">
-						</div>
-
-						<input class="file-uploader__submit-button" type="submit" value="Upload" disabled> 	
-					</div>
-					
-				</form>
-			</div>	
 
 							
-			
+			</div>
 		</div>
 
 		<div class="main_result results">
-			<div class="tableWrapper" id="tablemast">
-				{%	include	'includes/results.html'	%}
+			<div class="container">
+				<div class="tableWrapper" id="tablemast">
+					{%	include	'includes/results.html'	%}
+				</div>
 			</div>
 		</div>
 

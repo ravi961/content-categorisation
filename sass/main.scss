@@ -1,10 +1,11 @@
-@import "./mixin/clearfix";
+@import "./mixin/clearfix",
+		"./mixin/fontstyle";
 
 @import "./reset", 
 		"./uploadFile",
 	    "./content",
 	    "./results",
-	    "./header",
+		"./header",
 	    "./footer";
 
 

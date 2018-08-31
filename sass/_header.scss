@@ -1,5 +1,10 @@
-header {
-	position: fixed;
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 1000px;
+}
+.header {
+	// position: fixed;
 	top: 0;
 	left: 0;
 	margin-top: 0px;
@@ -7,25 +12,26 @@ header {
 	width: 100%;
 	z-index: 99999;
 	@include clearfix;
-
-	.header_logo {
-		float: left;
-		height:55px;
-		width:30%;
-		box-sizing:border-box;
-
-		img {
-			height:inherit;
+	.GreyBar {
+		background: #414A52;
+    	height: 35px;
+	}
+	.CyanBar {
+		background: #51ccdc;
+		.LogoContainer {
+			height: 80px;
+			padding: 15px 20px;
+			position: relative;
+			h2 {
+				@include fontstyle;
+				color: #fff;
+				font-size: 22px;
+				position: absolute;
+				top: 27px;
+				span {
+					font-weight: bold;
+				}
+			 }
 		}
 	}
-
-	#grpImg {
-		float: right;
-		background: url('../img/group.png') no-repeat ;
-		background-size: cover;
-		background-position: 14px 0px;
-		height: 55px;
-		width: 200px;
-	}
 }
-
