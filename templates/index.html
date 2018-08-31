@@ -8,22 +8,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="./scripts/uploadFile.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="{{ url_for('static', filename='scripts/uploadFile.js') }}" type="text/javascript" charset="utf-8" async defer></script>
 	<href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
 
-	<script>
+	<!-- <script>
 		$(function() {
 			$("#headmast").load("/header.html");
-
 			$("#tablemast").load("/results.html")
 		})
-	</script>
+	</script> -->
 </head>
 
 <body>
 
 	<header id="headmast">
-		
+		{%	include	'includes/header.html'	%}
 	</header>
 
 	<div class="main">
@@ -70,7 +69,7 @@
 					
 					<label for="doi">Enter DOI value <span class="required">*</span> :</label><br>
 					<input id="doi" type="text" name="doi" value="" required>
-					<span class="tip show">Invalid entry</span> <!-- toggle class hide/show as required-->
+					<!-- <span class="tip show">Invalid entry</span> <!-- toggle class hide/show as required--> -->
 				</div>
 
 				<input class="btnSubmit" type="submit" name="submit">
@@ -101,7 +100,7 @@
 
 		<div class="main_result results">
 			<div class="tableWrapper" id="tablemast">
-				
+				{%	include	'includes/results.html'	%}
 			</div>
 		</div>
 
