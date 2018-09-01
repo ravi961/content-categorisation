@@ -58,7 +58,7 @@
 	.main_input {
 		position: relative;
 		background: #eee;
-		padding: 60px 30px;
+		padding: 40px;
 		@include clearfix;
 		.query_text {
 				textarea {
@@ -194,7 +194,6 @@
 						color: rgba(65, 74, 82, 0.5);
 						background-color: #eee;
 						border: 1px solid #d8d8d8;
-						// border: none;
 						border-bottom: solid 2px #7AE2DE;
 						background-position: 280px 5px;
                    		outline: none;

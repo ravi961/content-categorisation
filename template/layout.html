@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Hackathon Solution</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="http://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
+	<script src="{{ url_for('static', filename='scripts/uploadFile.js') }}" type="text/javascript" charset="utf-8" async defer></script>
+
+</head>
+
+<body>
+	{%	include	'includes/header.html'	%}
+	{%	block body	%} {%	endblock	%}
+	
+	<footer class="footer">
+		<div class="footer-bottom">
+			<div class="copyright">Springer-Nature | Hackathon | Copyright ©2018<div>	
+		</div>
+	</footer>
+
+</body>
+	<script>
+
+		function toggleForm(value) {
+			if(value === "Query") {
+				$(".query_text").show();
+				$(".query_doi").hide();
+				$(".query_xml").hide();
+			}
+
+			else if (value === "XML") {
+				$(".query_text").hide();
+				$(".query_doi").hide();
+				$(".query_xml").show();
+
+			}
+
+			else if (value === "DOI") {
+				$(".query_text").hide();
+				$(".query_doi").show();
+				$(".query_xml").hide();
+			}
+		}
+
+
+		$('textarea').keyup(function() {
+	    
+		  var characterCount = $(this).val().length,
+		      current = $('#current'),
+		      maximum = $('#maximum'),
+		      theCount = $('#the-count');
+		    
+		  current.text(characterCount);
+		 
+		  
+		  /*This isn't necessary, just playing around. Erase later*/
+		  if (characterCount < 250) {
+		    current.css('color', '#fff');
+		    current.css('font-weight', 'normal');
+		  }
+		  if (characterCount > 70 && characterCount < 100) {
+		    current.css('color', '#eee');
+		    current.css('font-weight', 'normal');
+		  }
+		  if (characterCount > 200 && characterCount < 325) {
+		    current.css('color', '#793535');
+		    current.css('font-weight', 'normal');
+		  }
+		  if (characterCount > 325 && characterCount < 385) {
+		    current.css('color', '#841c1c');
+		    current.css('font-weight', 'normal');
+		  }
+		  if (characterCount > 450 && characterCount < 475) {
+		    current.css('color', '#8f0001');
+		    current.css('font-weight', 'bold');
+		  }
+		  
+		  if (characterCount == 500) {
+		    maximum.css('color', '#8f0001');
+		    current.css('color', '#8f0001');
+		    theCount.css('font-weight','bold');
+		  } else {
+		    maximum.css('color','#fff');
+		    theCount.css('font-weight','normal');
+		  }
+		  
+		      
+		});
+	</script>
+	<script src="{{ url_for('static', filename='scripts/script.js') }}" type="text/javascript" charset="utf-8" async defer></script>
+</html>

@@ -1,0 +1,23 @@
+GROBID
+
+-Front matter/header extracted from pdf that author has submitted as research article -
+-Header contains 1. authorinfo (F.name, M.name, L.name), 2. affilations(org/dept., city, pin-code etc, email-address, phn no.)
+-GROBID has 3 models: 
+1. Header Model
+2. Author Model
+3. Affilition Model
+
+-Grobid accepts as I/p:pdf
+-produces as o/p an xml with different pieces of author info.
+- Ultimate o/p is .tif file
+
+-There were some post-processing steps related to - Association of an email address to a correct author in case all author doesn't provide their email-address -->used RandomForest classifier for this whose o/p was prediction as 0 or 1 i.e. True or false. For association grobid's o/p i.e.author name + email address these 2 attributes are exported as it is and association/mapping part b/w these columns was done based on some rules like: markers like [1] along author name, no. of email ids provided match author names count, some part of author name used in email-address. But all this corpus was built from scratch data was curated manually.
+
+-CRF: Sequential benefit in case of kind/format of data author provides-research articles by various author has pre-defined standards.
+
+Grobid o/p xml , word(author article) to Pdf conversion
+
+markers[1, 2 etc. in author names] used
+
+Pre-cursor model was used in end which takes as i/p - GROBID o/p (xml)and (doc to pdf conversion was done) - o/p was tif file, this was provided as o/p to other system. This pre-cursor o/p highlights different parts of header section using some color scheme.
+

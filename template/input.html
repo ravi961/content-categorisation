@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{%	block body	%}
+<div class="main">
+	<div class="main_input query">
+		<div class="container">
+			<div class="heading-wrapper query_search_categories">
+				<div class="container-heading">
+					<h5>Select Query Type</h5>
+				</div>
+				<div class="sortby-wrapper query_search_select select">
+					<select class="sortby select_values query_options"  name = "search_categories" id="query_select" onchange="toggleForm(this.value)">
+						<option value="Query">Enter Text</option>
+						<option value="XML">Uplaod XML</option>
+					</select>
+				</div>
+			</div>
+			<div class="form_wrapper">
+				<form class="queryForm query_text" action="/output" method="GET" id="queryForm" accept-charset="utf-8">
+
+					<div class="queryWrapper">
+						<textarea rows="10" cols="55" name="textQuery" form="queryForm" placeholder="Enter query String" maxlength="200" required></textarea>
+						<div id="the-count">
+						    <span id="current">0</span>
+						    <span id="maximum">/ 500</span>
+					</div>	
+					</div>
+
+					<input id="textarea-button" class="btnSubmit" type="submit" name="submit">
+				</form>
+
+				<div class="queryForm">
+					<form class="query_xml file-uploader" method="post" action="" enctype="multipart/form-data" onSubmit="">
+						<div class="queryWrapper">
+							<div class="file-uploader__message-area">
+								<p>Select a file to upload</p>
+							</div>
+							<input class="file-uploader__submit-button" type="submit" value="Upload" disabled> 	
+						</div>
+						
+					</form>
+				</div>	
+			</div>	
+		</div>
+	</div>
+</div>
+{%	endblock	%}

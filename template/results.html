@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{%	block body	%}
+<div class="main">
+	<div class="main_result results">
+		<div class="container">
+			<div id="inputs" class="clearfix">
+				<input type="file" id="files" name="files[]" multiple />
+			</div>
+			<div class="FileDetails">
+				<output id="list"></output>	
+			</div>
+			<div class="tableWrapper" id="tablemast">
+				<div class="SearchContainer">
+					<input id="filter-inputbox" type="text" class="FilterInput" placeholder="Enter DOI">
+					<a id="filter-button" class="FilterLink"> Filter </a>
+					<span id="clear-filter" class="ClearFilter" ></span>
+				</div>
+				<table id="contents" style="width:100%; height:400px;" border></table>
+			</div>	
+		</div>
+	</div>
+</div>
+{%	endblock	%}

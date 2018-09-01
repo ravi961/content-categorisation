@@ -198,7 +198,7 @@ ul, li {
   .main .main_input {
     position: relative;
     background: #eee;
-    padding: 60px 30px; }
+    padding: 40px; }
     .main .main_input:before, .main .main_input:after {
       display: table;
       content: ""; }
@@ -309,10 +309,54 @@ ul, li {
         min-height: 1.2em;
         padding: 0px 2px 1px; }
 
+.main_result {
+  position: relative;
+  padding: 40px; }
+  .main_result .FileDetails {
+    margin: 10px 20px; }
+
+.Hide {
+  display: none; }
+
 .tableWrapper {
   font-family: 'Nunito', sans-serif;
   color: #384047;
   margin-top: 30px; }
+  .tableWrapper .SearchContainer {
+    position: relative;
+    margin: 30px 0; }
+    .tableWrapper .SearchContainer .FilterInput {
+      background: #fff;
+      padding: 5px 60px 7px 5px;
+      border: 1px solid #999999;
+      line-height: normal;
+      box-sizing: border-box;
+      text-align: left;
+      color: #666666;
+      font-size: 13px;
+      outline: none;
+      margin-right: 5px; }
+    .tableWrapper .SearchContainer .FilterLink {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #414A52;
+      padding: 9px 15px;
+      text-decoration: none;
+      cursor: pointer;
+      display: n; }
+    .tableWrapper .SearchContainer .ClearFilter {
+      background: url("../img/cross_icon.svg") no-repeat center center;
+      background-size: 10px auto;
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      left: 190px;
+      top: 5px;
+      cursor: pointer;
+      display: none; }
   .tableWrapper table {
     width: 100%; }
     .tableWrapper table caption {
@@ -329,16 +373,20 @@ ul, li {
         padding: 10px 2px;
         font-size: 0.8em;
         font-style: italic;
-        color: #8a97a0; }
+        color: #8a97a0;
+        text-align: left; }
 
-table tr {
+table thead tr th {
+  padding: 20px;
+  text-align: center; }
+table tbody tr {
   background: #f4f7f8;
   border-bottom: 1px solid #FFF;
   margin-bottom: 5px; }
-  table tr:nth-child(even) {
+  table tbody tr:nth-child(even) {
     background: #e8eeef; }
-  table tr th, table tr td {
-    text-align: center;
+  table tbody tr th, table tbody tr td {
+    text-align: left;
     padding: 20px;
     font-weight: 300; }
 
@@ -348,8 +396,6 @@ table tr {
   width: 1000px; }
 
 .header {
-  top: 0;
-  left: 0;
   margin-top: 0px;
   background-color: #e8ebed;
   width: 100%;
@@ -373,13 +419,25 @@ table tr {
         color: #fff;
         font-size: 22px;
         position: absolute;
-        top: 27px; }
+        top: 27px;
+        left: 0; }
         .header .CyanBar .LogoContainer h2 span {
           font-weight: bold; }
+      .header .CyanBar .LogoContainer a {
+        font-family: "Raleway", sans-serif;
+        cursor: pointer;
+        text-decoration: none; }
+      .header .CyanBar .LogoContainer .InputLink {
+        position: absolute;
+        right: 180px;
+        top: 32px;
+        color: #069;
+        font-weight: 600; }
+        .header .CyanBar .LogoContainer .InputLink:hover {
+          text-decoration: underline; }
 
 footer {
   background: #414A52;
-  margin-top: 40px;
   padding: 40px 20px 30px;
   color: #A6A6A6;
   text-align: center; }

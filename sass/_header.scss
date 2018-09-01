@@ -5,8 +5,8 @@
 }
 .header {
 	// position: fixed;
-	top: 0;
-	left: 0;
+	// top: 0;
+	// left: 0;
 	margin-top: 0px;
 	background-color: #e8ebed;
 	width: 100%;
@@ -28,10 +28,29 @@
 				font-size: 22px;
 				position: absolute;
 				top: 27px;
+				left: 0;
 				span {
 					font-weight: bold;
 				}
 			 }
+
+			a{
+				@include fontstyle;
+				cursor: pointer;
+				text-decoration: none;
+			}
+			.InputLink {
+				position: absolute;
+				right: 180px;
+				top:32px;
+				color:#069;
+				font-weight: 600;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
 		}
 	}
 }
