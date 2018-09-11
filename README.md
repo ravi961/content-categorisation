@@ -7,4 +7,3 @@
  - Run: to run:
  	- install flash, python, numpy, pandas 
  	- go to directory
-	- run "$ python app.py"  
